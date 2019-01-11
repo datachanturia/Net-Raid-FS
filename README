@@ -1,0 +1,27 @@
+
+PERMISSION:
+	sudo chmod a+r /etc/fuse.conf
+	
+UNMOUNT:	
+	fusermount -u folderPath
+
+WHEN MAKE TIME PROBLEM:
+	sudo ntpdate ntp.ubuntu.com
+
+EXE:
+	make
+	./net_raid_server 127.0.0.1 10001 /home/vagrant/storage_dir1
+	./net_raid_server 127.0.0.1 10002 /home/vagrant/storage_dir2
+	./net_raid_server 127.0.0.1 11111 /home/vagrant/hotswap_dir
+	./net_raid_client config_file
+
+USEFUL LINKS:
+	syscall descriptions:
+		https://www.ibm.com/developerworks/library/l-fuse/index.html
+
+		http://www.maastaar.net/fuse/linux/filesystem/c/2016/05/21/writing-a-simple-filesystem-using-fuse/
+
+		https://github.com/libfuse/libfuse/blob/6adcb719a933a31013c73fda8e0ccb0e13b45e58/include/fuse.h
+
+	man:
+		http://manpages.ubuntu.com/
